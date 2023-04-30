@@ -10,6 +10,11 @@
     border: solid 1px rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(4px);
 }
-.wid{
-    width: auto;
+.degree2{
+    box-sizing: border-box;
+    background-color: rgba(130, 149, 185, 0.226);
+    border-radius: 8px;
+    border: solid 1px rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.3);
 }

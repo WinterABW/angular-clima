@@ -7,7 +7,6 @@ import { WeatherService } from './services/weather.service';
 })
 export class AppComponent implements OnInit {
   weather: any = null;
-  errorDesc: any = null;
   city: string = '';
   code: string = '';
   res: any = null;
@@ -15,19 +14,21 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLocation();
+    
   }
 
   getWeather(cityName: string, countryCode: string) {
     this.weatherService.getWeather(cityName, countryCode).subscribe(
       (res) => {
-        (this.weather = res), console.log(res);
+        this.weather = res;
       },
-      (err) => (this.errorDesc = err)
+      (err) => console.log(err)
     );
   }
   getLocation() {
     this.weatherService.getLocation().subscribe(
-      (res) => {this.res=res, this.getWeather(res.city,res.country_code)
+      (res) => {
+        (this.res = res),this.city=res.city,this.code=res.country_code,this.getWeather(this.city, this.code)
       },
       (err) => console.log(err)
     );

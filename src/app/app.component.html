@@ -1,6 +1,6 @@
 <div class="p-2 cont">
   <div class="row">
-    <div class="col">
+    <div class="col mb-2">
       <div class="card card-body mx-auto degree">
         <div class="d-flex justify-content-between">
           <h1>Weather</h1>
@@ -82,21 +82,29 @@
         </form>
       </div>
     </div>
-    <div class="col">
-      <div *ngIf="weather; else error" class="card card-body degree col">
-        <h2><strong>Region:</strong> {{res.region_name}}        <strong>City:</strong> {{res.city}}</h2>
-        <h3><strong>Country:</strong> {{res.country_name}}         <strong>Country code:</strong> {{res.country_code}}</h3>
-        <h4>IP: {{res.ip}}         <strong>IP type:</strong> {{res.type}}</h4>
+    <div class="col degree p-2">
+      <h3 class="text-center">Current Location:</h3>
+      <div class="d-flex justify-content-around">
+        <h4><strong>City:</strong> {{res.city}}</h4>
+        <h5><strong>Country:</strong> {{res.country_name}}</h5>
+        <h5> <strong>Country code:</strong> {{res.country_code}}</h5>
+        <p><strong>IP:</strong> {{res.ip}}</p>
+      </div>
+      <hr>
+      <div *ngIf="weather; else error" class="col mt-1">
+        <div class="d-flex justify-content-around">
+          <h4><strong>City:</strong> {{city}}</h4>
+          <h4><strong>Country code:</strong> {{code.toUpperCase()}}</h4>
+        </div>
         <li>Latitude: {{weather.coord.lat}}</li>
         <li>Longitude: {{weather.coord.lon}}</li>
         <li>Current temperature: {{weather.main.temp}} °C</li>
-        <li>Temperature (max): {{weather.main.temp_max}} °C</li>
         <li>Humidity: {{weather.main.humidity}}</li>
         <li>Pressure: {{weather.main.pressure}}</li>
         <li>Description: {{weather.weather[0].description}}</li>
       </div>
       <ng-template #error>
-        <div class="col-md-6 p-2">
+        <div class="col-md-6 p-1">
           <h1>Error</h1>
           <ul>
             <li>Ha ocurrido un error</li>
@@ -108,4 +116,3 @@
     </div>
   </div>
 </div>
-

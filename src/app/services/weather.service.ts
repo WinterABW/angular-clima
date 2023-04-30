@@ -10,7 +10,7 @@ export class WeatherService {
 
   constructor(private _http: HttpClient) {
     this.URI = `https://api.openweathermap.org/data/2.5/weather?appid=${this.apikey}&units=metric&lang=es&q=`;
-    this.ip = 'http://api.ipstack.com/check?access_key=9cc606f5636756e1e13815af49ff753f';
+    this.ip = 'http://api.ipstack.com/check?access_key=1c70e3dfd950397a98b2cb69e6c2e14a';
   }
   getWeather(cityName: string, countryCode: string) {
     return this._http.get<any>(`${this.URI}${cityName},${countryCode}`);
