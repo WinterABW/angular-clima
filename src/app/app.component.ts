@@ -10,16 +10,26 @@ export class AppComponent implements OnInit {
   errorDesc: any = null;
   city: string = '';
   code: string = '';
-
+  res: any = null;
   constructor(private weatherService: WeatherService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getLocation();
+  }
 
   getWeather(cityName: string, countryCode: string) {
     this.weatherService.getWeather(cityName, countryCode).subscribe(
-      (res) => {(this.weather = res),console.log(res);
+      (res) => {
+        (this.weather = res), console.log(res);
       },
       (err) => (this.errorDesc = err)
+    );
+  }
+  getLocation() {
+    this.weatherService.getLocation().subscribe(
+      (res) => {this.res=res, this.getWeather(res.city,res.country_code)
+      },
+      (err) => console.log(err)
     );
   }
 

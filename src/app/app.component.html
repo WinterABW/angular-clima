@@ -84,12 +84,13 @@
     </div>
     <div class="col">
       <div *ngIf="weather; else error" class="card card-body degree col">
-        <h1>City: {{city}}</h1>
-        <h3>Country Code: {{code}}</h3>
+        <h2><strong>Region:</strong> {{res.region_name}}        <strong>City:</strong> {{res.city}}</h2>
+        <h3><strong>Country:</strong> {{res.country_name}}         <strong>Country code:</strong> {{res.country_code}}</h3>
+        <h4>IP: {{res.ip}}         <strong>IP type:</strong> {{res.type}}</h4>
         <li>Latitude: {{weather.coord.lat}}</li>
         <li>Longitude: {{weather.coord.lon}}</li>
-        <li>Temperature: {{weather.main.temp}} </li>
-        <li>Temperature: {{weather.main.temp}} °C</li>
+        <li>Current temperature: {{weather.main.temp}} °C</li>
+        <li>Temperature (max): {{weather.main.temp_max}} °C</li>
         <li>Humidity: {{weather.main.humidity}}</li>
         <li>Pressure: {{weather.main.pressure}}</li>
         <li>Description: {{weather.weather[0].description}}</li>
@@ -107,3 +108,4 @@
     </div>
   </div>
 </div>
+
